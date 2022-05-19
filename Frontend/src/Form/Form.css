@@ -1,0 +1,20 @@
+.uploadForm{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.required{
+    color: red;
+}
+.uploadForm p{
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 2rem;
+}
+.alert{
+    color: red;
+}
+.success{
+    color: green;
+}
