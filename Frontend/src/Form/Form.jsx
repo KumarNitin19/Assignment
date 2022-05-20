@@ -65,7 +65,6 @@ const Form = () => {
                 <Loader></Loader>
             ) : (
             <>
-            <Header></Header>
             <div className="container">
                 <div className="uploadForm ">
                     {
@@ -115,7 +114,6 @@ const Form = () => {
                     </form>
                 </div>
             </div>
-            <Footer></Footer>
             </>
             )
         }

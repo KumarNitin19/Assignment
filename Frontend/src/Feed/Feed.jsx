@@ -88,7 +88,6 @@ const Feed = () => {
                 <Loader></Loader>
             ) : (
                 <>
-                    <Header></Header>
                     <div className="feed py-md-4 py-2">
                         <div className="container">
                             <div className="headerBottom mt-4 d-none d-xl-flex">
@@ -114,7 +113,6 @@ const Feed = () => {
                             </div>
                         </div>
                     </div>
-                    <Footer></Footer>
                 </>
             )
             }
