@@ -36,6 +36,9 @@ if(process.env.NODE_ENV === 'production'){
   //    res.sendFile(path.resolve(__dirname1,"Frontend/build/index.html"))
   //  })
 
+  const directory = path.join(__dirname, 'Frontend/build/images/');
+ app.use('Frontend/build/images/', express.static(directory));
+
 }
 
 
