@@ -5,7 +5,6 @@ const connectDB = require('./Config/db')
 const imageRoute = require('./Route/Image');
 const cors = require('cors');
 const path = require('path');
-const { resolveSoa } = require("dns");
 
 
 dotenv.config();
@@ -34,7 +33,8 @@ app.use(bodyParser.json());
 const __dirname1 = path.resolve();
 if(process.env.NODE_ENV === 'production'){
   
-   app.use(express.static(path.join(__dirname1,"Frontend/build")))
+  //  app.use(express.static(path.join(__dirname1,"Frontend/build")))
+   app.use(express.static(__dirname1));
 
    app.get('*',(req,res)=>{
      res.sendFile(path.resolve(__dirname1,"Frontend","build","index.html"))
