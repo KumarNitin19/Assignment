@@ -20,24 +20,25 @@ const corsOpts = {
   
 app.use(cors(corsOpts));
 
-const directory = path.join(__dirname, 'Frontend/public/assets/');
-app.use('Frontend/public/assets/', express.static(directory));
+// const directory = path.join(__dirname, 'Frontend/public/assets/');
+// app.use('Frontend/public/assets/', express.static(directory));
+
 
 //=====================Deployment==============================//
 
 
 const __dirname1 = path.resolve();
 if(process.env.NODE_ENV === 'production'){
-  
-    app.use(express.static(path.join(__dirname1,"Frontend/build")))
- 
-
-  //  app.get('*',(req,res)=>{
-  //    res.sendFile(path.resolve(__dirname1,"Frontend/build/index.html"))
-  //  })
 
   const directory = path.join(__dirname, 'Frontend/build/assets/');
- app.use('Frontend/build/assets/', express.static(directory));
+  app.use('Frontend/build/assets/', express.static(directory));
+  
+     app.use(express.static(path.join(__dirname1,"Frontend/build")))
+ 
+
+   app.get('/get',(req,res)=>{
+     res.sendFile(path.resolve(__dirname1,"Frontend/build/index.html"))
+   })
 
 }
 

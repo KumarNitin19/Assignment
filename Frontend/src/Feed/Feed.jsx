@@ -67,7 +67,7 @@ const Feed = () => {
             <>
                 <div className="feedCard col-lg-4 col-md-6 col-sm-12">
                     <div className="cardImage">
-                        <img src={"./images/" + item.image} alt="image" />
+                        <img src={"./assets/" + item.image} alt="image" />
                     </div>
                     <div className="cardBody">
                         <p className="bodyData">{item.username}</p>
