@@ -31,12 +31,9 @@ app.use(bodyParser.json());
 
 
 if(process.env.NODE_ENV === 'production'){
- // const __dirname1 = path.resolve();
+   const __dirname1 = path.resolve();
   
-  //  app.use(express.static(path.join(__dirname1,"Frontend/build")))
-  
-  const directory = path.join(__dirname, 'Frontend/build');
-  app.use('Frontend/build/index.html', express.static(directory));
+    app.use(express.static(path.join(__dirname1,"Frontend/build")))
 
    app.get('*',(req,res)=>{
      res.sendFile(path.resolve(directory,"Frontend","build","index.html"))
