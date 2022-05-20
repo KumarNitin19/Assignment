@@ -18,3 +18,19 @@
 .success{
     color: green;
 }
+
+@media (max-width:580px) {
+    .uploadForm{
+        margin-bottom: 4rem;
+    }
+}
+@media (max-width:480px) {
+    .uploadForm{
+        margin-bottom: 2rem;
+    }
+}
+@media (max-width:400px) {
+    .uploadForm{
+        margin-bottom: 4rem;
+    }
+}
