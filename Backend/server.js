@@ -39,10 +39,7 @@ if(process.env.NODE_ENV === 'production'){
    app.get('*',(req,res)=>{
      res.sendFile(path.resolve(__dirname1,"Frontend","build","index.html"))
    })
-   app.get('/uploads',(req,res)=>{
-    res.sendFile(path.resolve(__dirname1,"Frontend","build","index.html"))
-  })
-
+  
 }
 
 
