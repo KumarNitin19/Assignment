@@ -30,18 +30,19 @@ app.use(bodyParser.json());
 //=====================Deployment==============================//
 
 
-const __dirname1 = path.resolve();
 if(process.env.NODE_ENV === 'production'){
+ // const __dirname1 = path.resolve();
   
-    app.use(express.static(path.join(__dirname1,"Frontend/build")))
+  //  app.use(express.static(path.join(__dirname1,"Frontend/build")))
   
-   app.get('*',(req,res)=>{
-     res.sendFile(path.resolve(__dirname1,"Frontend","build","index.html"))
-   })
-   app.get('/uploads',(req,res)=>{
-    res.sendFile(path.resolve(__dirname1,"Frontend","build","index.html"))
-  })
 
+  //  app.get('*',(req,res)=>{
+  //    res.sendFile(path.resolve(__dirname1,"Frontend","build","index.html"))
+  //  })
+
+   const directory = path.join(__dirname, 'Frontend/build');
+app.use('Frontend/build/index.html', express.static(directory));
+  
 }
 
 

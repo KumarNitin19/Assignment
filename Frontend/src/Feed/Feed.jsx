@@ -10,7 +10,7 @@ const Feed = () => {
 
     const [feedCardData, setfeedCardData] = useState([])
     const [filteredData, setFilteredData] = useState([])
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const feedData = async () => {
         setLoading(true)
@@ -21,6 +21,7 @@ const Feed = () => {
             setLoading(false);
         } catch (error) {
             console.log(error);
+            setLoading(false);
         }
     }
 
@@ -28,9 +29,7 @@ const Feed = () => {
         feedData();
     }, [])
 
-    setInterval(() => {
-        setLoading(false);
-    }, 2000);
+   
 
     const getFilterValue = (e) => {
          e.preventDefault();

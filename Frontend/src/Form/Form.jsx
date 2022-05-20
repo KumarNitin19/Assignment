@@ -16,7 +16,7 @@ const Form = () => {
     const [type, setType] = useState('');
     const [error, setError] = useState(false);
     const [display, setDisplay] = useState(false);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
 
 
@@ -53,10 +53,6 @@ const Form = () => {
             }
         }
     }
-
-    setInterval(() => {
-        setLoading(false);
-    }, 500);
 
     setInterval(() => {
         setDisplay(false)
