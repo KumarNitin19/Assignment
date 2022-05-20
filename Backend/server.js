@@ -4,7 +4,8 @@ const dotenv = require("dotenv");
 const connectDB = require('./Config/db')
 const imageRoute = require('./Route/Image');
 const cors = require('cors');
-const path = require('path')
+const path = require('path');
+const { resolveSoa } = require("dns");
 
 
 dotenv.config();
@@ -26,6 +27,23 @@ app.use('Frontend/public/images/', express.static(directory));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
+
+//=====================Deployment==============================//
+
+
+const __dirname1 = path.resolve();
+if(process.env.NODE_ENV === 'production'){
+  
+   app.use(express.static(path.join(__dirname1,"Frontend/build")))
+
+   app.get('/',(req,res)=>{
+     res.sendFile(path.resolve(__dirname1,"Frontend","build","index.html"))
+   })
+
+}
+
+
+//=====================Deployment==============================//
 const PORT = process.env.PORT || 1000;
 
 app.listen(PORT,() => {
