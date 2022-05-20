@@ -23,10 +23,6 @@ app.use(cors(corsOpts));
 const directory = path.join(__dirname, 'Frontend/public/images/');
 app.use('Frontend/public/images/', express.static(directory));
 
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(bodyParser.json());
-
-
 //=====================Deployment==============================//
 
 
@@ -34,13 +30,19 @@ const __dirname1 = path.resolve();
 if(process.env.NODE_ENV === 'production'){
   
     app.use(express.static(path.join(__dirname1,"Frontend/build")))
+ 
 
    app.get('*',(req,res)=>{
      res.sendFile(path.resolve(__dirname1,"Frontend","build","index.html"))
    })
 
-  
 }
+
+
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
+
+
 
 
 //=====================Deployment==============================//

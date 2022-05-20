@@ -81,6 +81,11 @@
      color: black;
 }
 
+@media (max-width:580px) {
+    .menuItem{
+        overflow-y: scroll;
+    }
+}
 
 @media (max-width:400px) {
     .nav-menu{

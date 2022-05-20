@@ -30,7 +30,7 @@ const Navbar = () => {
                          <Link to="#" className="menuIcon">Most popular</Link>
                      </li>
                      <li className="menuText">
-                         <Link to="#" className="menuIcon"><img src="./assets/diamond.png" alt="" />In Genesis</Link>
+                         <Link to="/upload" className="menuIcon"><img src="./assets/diamond.png" alt="" />Upload</Link>
                      </li>
                      <li className="menuText">
                          <Link to="#" className="menuIcon"><img src="./assets/temple.png" alt="" />In Temple</Link>

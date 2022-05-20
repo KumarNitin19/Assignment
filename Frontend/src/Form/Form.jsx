@@ -79,7 +79,7 @@ const Form = () => {
                             </div>
                         )
                     }
-                    <form className="form w-50 mt-4">
+                    <form className="form w-75 w-md-50 mt-4">
                         <div className="form-group mt-4">
                             <label htmlFor="exampleInputEmail1">Image Description <span className="required">*</span></label>
                             <input type="text" className="form-control" placeholder="Enter image description" onChange={(e) => setuserName(e.target.value)} value={userName} required />

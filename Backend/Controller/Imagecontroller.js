@@ -3,6 +3,7 @@ const asyncHandler = require('express-async-handler');
 
 
 const index = (req, res, next) => {
+    console.log("hello")
        Image.find()
        .then(response => {
            res.json({
