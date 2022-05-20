@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import './Feed.css'
 import axios from 'axios'
 import Loader from '../Loader/Loader'
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
 
 const Feed = () => {
 
