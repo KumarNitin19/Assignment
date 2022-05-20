@@ -32,21 +32,24 @@ if(process.env.NODE_ENV === 'production'){
     app.use(express.static(path.join(__dirname1,"Frontend/build")))
  
 
-   app.get('*',(req,res)=>{
-     res.sendFile(path.resolve(__dirname1,"Frontend","build","index.html"))
-   })
+  //  app.get('*',(req,res)=>{
+  //    res.sendFile(path.resolve(__dirname1,"Frontend/build/index.html"))
+  //  })
 
 }
+
+
+
+//=====================Deployment==============================//
+
+
 
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 
-
-
-//=====================Deployment==============================//
-const PORT = process.env.PORT || 1000;
+const PORT = process.env.PORT || 7000;
 
 app.listen(PORT,() => {
     console.log(`Server is running on port ${PORT}`)

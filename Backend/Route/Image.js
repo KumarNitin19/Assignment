@@ -19,7 +19,7 @@ var upload = multer({ storage: Storage });
 
 const imageController = require('../Controller/Imagecontroller');
 
-router.get('/',imageController.index);
+router.get('/get',imageController.index);
 router.post('/addImage', upload.single('image'),imageController.addNewImage);
 router.post('/updateImage',imageController.updateImageData);
 router.post('/deleteImage',imageController.deleteImage);
