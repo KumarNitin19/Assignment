@@ -6,7 +6,11 @@ const imageSchema = new Schema({
     buttonText:{type:String},
     buttonSubText:{type:String},
     link:{type:String},
-    image:{type:String},
+    type:{type:String},
+    image:
+    {
+        type:String
+    }
 }, { timestamp:true});
 
 

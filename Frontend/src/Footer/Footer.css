@@ -1,6 +1,14 @@
 .footer{
     text-align: center;
-    padding: 10px 0px;
+    padding: 15px 0px;
+    border-top: 1px solid;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+    width: 100%;
+    position: fixed;
+    background: #fafafa;
 }
 .footer p{
     margin: 0px;

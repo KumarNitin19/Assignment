@@ -1,6 +1,5 @@
 const Image = require('../Model/Image');
 const asyncHandler = require('express-async-handler');
-const fs = require('fs');
 
 
 const index = (req, res, next) => {
@@ -20,9 +19,9 @@ const index = (req, res, next) => {
 
 
 const addNewImage = asyncHandler(async (req,res) =>{
-     const {username , buttonText, buttonSubText, link} = req.body;
-     var imageFile = req.file.filename;
-     
+     const {username , buttonText, buttonSubText, link, type} = req.body;
+     const imageData = req.file.filename;
+
     if(!username || !buttonText || !buttonSubText || !link ){
         res.status(400);
         throw new Error("Please Enter all the Fields");
@@ -33,7 +32,8 @@ const addNewImage = asyncHandler(async (req,res) =>{
             buttonText:buttonText,
             buttonSubText:buttonSubText,
             link:link,
-            image: imageFile
+            type:type,
+            image:imageData
         });
 
     if(newImage){
@@ -53,8 +53,10 @@ const addNewImage = asyncHandler(async (req,res) =>{
 
 
 const updateImageData = asyncHandler(async (req,res) =>{
-    const {username, buttonText, buttonSubText, link, image} = req.body;
+    const {username, buttonText, buttonSubText, link ,type} = req.body;
     let imageId = req.body.image_id;
+
+    const imageData = req.file.filename;
 
     if(!imageId){
         console.log("Invalid data passed into request");
@@ -66,7 +68,8 @@ const updateImageData = asyncHandler(async (req,res) =>{
         buttonText:buttonText,
         buttonSubText:buttonSubText,
         link:link,
-        image:image
+        type:type,
+        image:imageData
     }
 
      await  Image.findByIdAndUpdate(imageId, {$set:updateImage})

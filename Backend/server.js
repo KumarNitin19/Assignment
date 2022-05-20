@@ -4,8 +4,9 @@ const dotenv = require("dotenv");
 const connectDB = require('./Config/db')
 const imageRoute = require('./Route/Image');
 const cors = require('cors');
+const path = require('path')
 
-// mongoose.connect()
+
 dotenv.config();
 
 connectDB();
@@ -17,11 +18,13 @@ const corsOpts = {
     origin: '*'
   };
   
-  app.use(cors(corsOpts));
+app.use(cors(corsOpts));
+
+const directory = path.join(__dirname, 'Frontend/public/images/');
+app.use('Frontend/public/images/', express.static(directory));
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
-
 
 const PORT = process.env.PORT || 1000;
 

@@ -1,6 +1,11 @@
 .heading{
   font-size: 2rem;
   font-weight: 700;
+  color: black;
+  text-decoration: none;
+}
+.heading:hover{
+  color: black;
 }
 .headerMiddle{
     font-size: 1.3rem;
