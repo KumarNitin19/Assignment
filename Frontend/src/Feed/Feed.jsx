@@ -61,8 +61,6 @@ const Feed = () => {
 
 
     const feedItems = (item) => {
-        // console.log(item);
-        // console.log(filter);
         return (
             <>
                 <div className="feedCard col-lg-4 col-md-6 col-sm-12">

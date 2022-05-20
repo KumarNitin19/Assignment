@@ -20,8 +20,11 @@ const corsOpts = {
   
 app.use(cors(corsOpts));
 
+//===========Development directory==============//
+
 // const directory = path.join(__dirname, 'Frontend/public/assets/');
 // app.use('Frontend/public/assets/', express.static(directory));
+
 
 
 //=====================Deployment==============================//
