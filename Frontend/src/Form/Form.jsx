@@ -28,7 +28,7 @@ const Form = () => {
         if (userName != '' && file != '' && text != '' && subtext != '' && link != '' && type != '') {
             setError(false);
             try {
-                let url = 'http://localhost:7000/api/image/addImage';
+                let url = '/api/image/addImage';
 
                 let inputData = new FormData();
                 inputData.append("username", userName);

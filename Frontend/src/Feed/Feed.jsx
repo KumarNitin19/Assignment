@@ -15,7 +15,7 @@ const Feed = () => {
     const feedData = async () => {
         setLoading(true)
         try {
-            const data = await axios.get('http://localhost:7000/api/image');
+            const data = await axios.get('/api/image');
             setfeedCardData(data.data.response);
             setFilteredData(data.data.response);
             setLoading(false);
