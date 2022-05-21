@@ -50,6 +50,7 @@ const Form = () => {
                 console.log(error);
             }
         }
+        setLoading(false);
     }
 
     setInterval(() => {

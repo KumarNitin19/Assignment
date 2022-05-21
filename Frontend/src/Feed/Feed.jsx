@@ -9,7 +9,6 @@ const Feed = () => {
     const [feedCardData, setfeedCardData] = useState([])
     const [filteredData, setFilteredData] = useState([])
     const [loading, setLoading] = useState(false);
-    const [noData, setNoData] = useState(false);
 
     const feedData = async () => {
         setLoading(true)
@@ -18,13 +17,9 @@ const Feed = () => {
             setfeedCardData(data.data.response);
             setFilteredData(data.data.response);
             setLoading(false);
-            if (data.data.response.length == 0) {
-                setNoData(true);
-            }
         } catch (error) {
             console.log(error);
             setLoading(false);
-            setNoData(true);
         }
     }
 
@@ -39,7 +34,7 @@ const Feed = () => {
         setLoading(true);
         let data = [];
         let value = e.target.innerText;
-        if (filteredData != undefined && noData == false) {
+        if (filteredData != undefined ) {
             filteredData.filter((item) => {
                 if (value == item.type) {
                     data.push(item)
@@ -48,9 +43,6 @@ const Feed = () => {
                     data.push(item)
                 }
             });
-        }
-        if (data.length == 0) {
-            setNoData(true);
         }
         setLoading(false);
         setfeedCardData(data)
@@ -100,7 +92,7 @@ const Feed = () => {
 
                             <div className="row mainBody">
 
-                                {noData !== true ? (
+                                { feedCardData.length != 0 ? (
                                     feedCardData.map(feedItems)
                                 )
                                     : (

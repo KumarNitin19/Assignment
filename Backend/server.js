@@ -34,8 +34,8 @@ app.use('/api/image',imageRoute)
 const __dirname1 = path.resolve();
 if(process.env.NODE_ENV === 'production'){
 
-  const directory = path.join(__dirname, 'Frontend/build/assets/');
-  app.use('Frontend/build/assets/', express.static(directory));
+  const directory = path.join(__dirname, 'Frontend/public/assets/');
+  app.use('Frontend/public/assets/', express.static(directory));
   
      app.use(express.static(path.join(__dirname1,"Frontend/build")))
  
