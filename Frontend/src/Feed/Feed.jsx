@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Feed.css'
 import axios from 'axios'
 import Loader from '../Loader/Loader'
+import { Dropdown } from 'react-bootstrap'
 
 const Feed = () => {
 
@@ -9,6 +10,7 @@ const Feed = () => {
     const [feedCardData, setfeedCardData] = useState([])
     const [filteredData, setFilteredData] = useState([])
     const [loading, setLoading] = useState(false);
+
 
     const feedData = async () => {
         setLoading(true)
@@ -34,7 +36,7 @@ const Feed = () => {
         setLoading(true);
         let data = [];
         let value = e.target.innerText;
-        if (filteredData != undefined ) {
+        if (filteredData != undefined) {
             filteredData.filter((item) => {
                 if (value == item.type) {
                     data.push(item)
@@ -49,6 +51,22 @@ const Feed = () => {
     }
 
 
+    const deleteImage = async(value) => {
+           setLoading(true)
+            try {
+                let url = '/api/image/deleteImage';
+                let inputData = {
+                    "_id" : value
+                }
+                await axios.post(url,inputData);
+                feedData();
+                setLoading(false);
+            } catch (error) {
+                console.log(error);
+                setLoading(false);
+            }
+    }
+
 
     const feedItems = (item) => {
         return (
@@ -59,12 +77,26 @@ const Feed = () => {
                     </div>
                     <div className="cardBody">
                         <p className="bodyData">{item.username}</p>
-                        <a href={item.link} target="_blank">
-                            <button>
-                                <p className="m-0">{item.buttonText}</p>
-                                <span>{item.buttonSubText}</span>
-                            </button>
-                        </a>
+                        <div className="bottomContent">
+                            <a href={item.link} target="_blank">
+                                <button className="imageButton">
+                                    <p className="m-0">{item.buttonText}</p>
+                                    <span>{item.buttonSubText}</span>
+                                </button>
+                            </a>
+                            <div className="dropdown">
+                                <Dropdown>
+                                    <Dropdown.Toggle id="dropdown-basic" className="btn btn-dark">
+                                        <i class="fa fa-ellipsis-v"></i>
+                                    </Dropdown.Toggle>
+
+                                    <Dropdown.Menu>
+                                        <Dropdown.Item href="/upload"><i class="fa fa-wrench" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Update</Dropdown.Item>
+                                        <Dropdown.Item onClick={()=>deleteImage(item._id)}><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Delete</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </>
@@ -92,7 +124,7 @@ const Feed = () => {
 
                             <div className="row mainBody">
 
-                                { feedCardData.length != 0 ? (
+                                {feedCardData.length != 0 ? (
                                     feedCardData.map(feedItems)
                                 )
                                     : (

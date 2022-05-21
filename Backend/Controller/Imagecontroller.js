@@ -94,16 +94,16 @@ const updateImageData = asyncHandler(async (req,res) =>{
 
 
 const deleteImage = (req, res, next) => {
-     let imageId = req.body.image_id;
+     let imageId = req.body._id;
 
      Image.findByIdAndRemove(imageId)
      .then(() => {
-          req.json({
+          res.json({
               message: "Image deleted Successfully"
           }) 
      })
      .catch(error => {
-         req.json({
+         res.json({
              message:"An error Occured!"
          })
      }) 

@@ -20,10 +20,17 @@ const corsOpts = {
   
 app.use(cors(corsOpts));
 
+
+
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
+
+
 //===========Development directory==============//
 
-// const directory = path.join(__dirname, 'Frontend/public/assets/');
-// app.use('Frontend/public/assets/', express.static(directory));
+const directory = path.join(__dirname, 'Frontend/public/assets/');
+app.use('Frontend/public/assets/', express.static(directory));
+
 
 
 app.use('/api/image',imageRoute)
@@ -50,10 +57,6 @@ if(process.env.NODE_ENV === 'production'){
 //=====================Deployment==============================//
 
 
-
-
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(bodyParser.json());
 
 
 const PORT = process.env.PORT || 7000;
