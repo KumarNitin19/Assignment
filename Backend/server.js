@@ -28,8 +28,8 @@ app.use(bodyParser.json());
 
 //===========Development directory==============//
 
-const directory = path.join(__dirname, 'Frontend/public/assets/');
-app.use('Frontend/public/assets/', express.static(directory));
+// const directory = path.join(__dirname, 'Frontend/public/assets/');
+// app.use('Frontend/public/assets/', express.static(directory));
 
 
 
