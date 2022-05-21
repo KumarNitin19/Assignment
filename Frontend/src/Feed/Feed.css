@@ -59,7 +59,9 @@
    padding: 7px 10px;
    width: 8rem;
 }
-
+.cardBody button{
+    position: initial !important;
+}
 .cardBody button:hover, .btn-primary:hover {
     background: gray !important;
     color: white !important;
