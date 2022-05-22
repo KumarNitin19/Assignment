@@ -4,7 +4,7 @@ import axios from 'axios'
 import Loader from '../Loader/Loader'
 import { Dropdown } from 'react-bootstrap'
 
-const Feed = (value) => {
+const Feed = (filterValue) => {
 
 
     const [feedCardData, setfeedCardData] = useState([])
@@ -23,8 +23,8 @@ const Feed = (value) => {
             console.log(error);
             setLoading(false);
         }
-        if(value != ''){
-            getFilterValue(value)
+        if(filterValue.value != ''){
+            getFilterValue(filterValue.value)
         }
     }
 
