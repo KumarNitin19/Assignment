@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Feed from '../Feed/Feed';
 import './Navbar.css';
 
 const Navbar = () => {
 
 
     const [sidebar, setSidebar] = useState(false);
+    const [selected, setSelected] = useState('');
 
-    const showSidebar = () => setSidebar(!sidebar);
+    const showSidebar = (e) => {
+        setSidebar(!sidebar)
+        setSelected(e.target.innerText)
+    }
 
 
     return (
@@ -43,6 +48,9 @@ const Navbar = () => {
                      </li>
                  </ul>
             </nav>
+            <div className="d-none">
+               <Feed value={selected}></Feed>
+            </div>
         </>
     )
 }

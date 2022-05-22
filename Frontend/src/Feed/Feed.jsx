@@ -4,7 +4,7 @@ import axios from 'axios'
 import Loader from '../Loader/Loader'
 import { Dropdown } from 'react-bootstrap'
 
-const Feed = () => {
+const Feed = (value) => {
 
 
     const [feedCardData, setfeedCardData] = useState([])
@@ -23,6 +23,9 @@ const Feed = () => {
             console.log(error);
             setLoading(false);
         }
+        if(value != ''){
+            getFilterValue(value)
+        }
     }
 
     useEffect(() => {
@@ -30,18 +33,15 @@ const Feed = () => {
     }, [])
 
 
-
-    const getFilterValue = (e) => {
-        e.preventDefault();
+    const getFilterValue = (filter) => {
         setLoading(true);
         let data = [];
-        let value = e.target.innerText;
         if (filteredData != undefined) {
             filteredData.filter((item) => {
-                if (value == item.type) {
+                if (filter == item.type) {
                     data.push(item)
                 }
-                if (value === 'All') {
+                if (filter === 'All') {
                     data.push(item)
                 }
             });
@@ -49,7 +49,6 @@ const Feed = () => {
         setLoading(false);
         setfeedCardData(data)
     }
-
 
     const deleteImage = async(value) => {
            setLoading(true)
@@ -113,13 +112,13 @@ const Feed = () => {
                     <div className="feed py-md-4 py-2">
                         <div className="container">
                             <div className="headerBottom mt-4 d-none d-xl-flex">
-                                <button className="d-flex align-items-center" onClick={getFilterValue}><img src="./assets/fire.png" alt="" />Trending</button>
-                                <button className="d-flex align-items-center" onClick={getFilterValue}>Latest</button>
+                                <button className="d-flex align-items-center" onClick={(e)=>getFilterValue(e.target.innerText)}><img src="./assets/fire.png" alt="" />Trending</button>
+                                <button className="d-flex align-items-center" onClick={(e)=>getFilterValue(e.target.innerText)}>Latest</button>
                                 <button className="d-flex align-items-center">Most popular</button>
                                 <a href="/upload"><button className="d-flex align-items-center"><img src="./assets/diamond.png" alt="" />Upload</button></a>
                                 <button className="d-flex align-items-center"><img src="./assets/temple.png" alt="" />In Temple</button>
-                                <button className="d-flex align-items-center" onClick={getFilterValue}>NFT</button>
-                                <button className="d-flex align-items-center" onClick={getFilterValue}>All</button>
+                                <button className="d-flex align-items-center" onClick={(e)=>getFilterValue(e.target.innerText)}>NFT</button>
+                                <button className="d-flex align-items-center" onClick={(e)=>getFilterValue(e.target.innerText)}>All</button>
                             </div>
 
                             <div className="row mainBody">
