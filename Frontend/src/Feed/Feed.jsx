@@ -24,7 +24,7 @@ const Feed = (filterValue) => {
             setLoading(false);
         }
         if(filterValue.value != '' && filterValue.value != undefined){
-            getFilterValue(filterValue.value)
+            getFilterValue(filterValue.value);
         }
     }
 
@@ -34,6 +34,7 @@ const Feed = (filterValue) => {
 
 
     const getFilterValue = (filter) => {
+        console.log(filter);
         setLoading(true);
         let data = [];
         if (filteredData != undefined) {
