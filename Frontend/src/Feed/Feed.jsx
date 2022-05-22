@@ -23,14 +23,13 @@ const Feed = (filterValue) => {
             console.log(error);
             setLoading(false);
         }
-        console.log(filterValue.value);
-        if(filterValue.value != '' && filterValue.value != undefined){
-            getFilterValue(filterValue.value);
-        }
     }
 
     useEffect(() => {
         feedData();
+        if(filterValue.value != '' && filterValue.value != undefined){
+            getFilterValue(filterValue.value);
+        }
     }, [])
 
 
