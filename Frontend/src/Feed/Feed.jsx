@@ -23,7 +23,7 @@ const Feed = (filterValue) => {
             console.log(error);
             setLoading(false);
         }
-        if(filterValue.value != ''){
+        if(filterValue.value != '' && filterValue.value != undefined){
             getFilterValue(filterValue.value)
         }
     }
