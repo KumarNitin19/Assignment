@@ -54,8 +54,7 @@ const addNewImage = asyncHandler(async (req,res) =>{
 
 const updateImageData = asyncHandler(async (req,res) =>{
     const {username, buttonText, buttonSubText, link ,type} = req.body;
-    let imageId = req.body.image_id;
-
+    let imageId = req.body._id;
     const imageData = req.file.filename;
 
     if(!imageId){

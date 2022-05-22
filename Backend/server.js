@@ -25,15 +25,15 @@ app.use(cors(corsOpts));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
+app.use('/api/image',imageRoute)
 
 //===========Development directory==============//
 
-// const directory = path.join(__dirname, 'Frontend/public/assets/');
-// app.use('Frontend/public/assets/', express.static(directory));
+const directory = path.join(__dirname, 'Frontend/public/assets/');
+app.use('Frontend/public/assets/', express.static(directory));
 
 
 
-app.use('/api/image',imageRoute)
 
 //=====================Deployment==============================//
 

@@ -6,7 +6,7 @@ const multer = require('multer');
 
 var Storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'Frontend/build/assets/')
+        cb(null, 'Frontend/public/assets/')
     },
     filename: (req, file, cb) => {
         cb(null, file.originalname)
@@ -21,7 +21,7 @@ const imageController = require('../Controller/Imagecontroller');
 
 router.get('/get',imageController.index);
 router.post('/addImage', upload.single('image'),imageController.addNewImage);
-router.post('/updateImage',imageController.updateImageData);
+router.post('/updateImage', upload.single('image'),imageController.updateImageData);
 router.post('/deleteImage',imageController.deleteImage);
 
 
