@@ -7,12 +7,12 @@ const Navbar = () => {
 
 
     const [sidebar, setSidebar] = useState(false);
+    const [setData, setSetData] = useState('All');
 
-    const childCompFunc = useRef();
 
     const showSidebar = (e) => {
         setSidebar(!sidebar);
-        childCompFunc.current.getFilterValue(e.target.innerText)
+        setSetData(e.target.innerText)
     }
 
 
@@ -51,7 +51,7 @@ const Navbar = () => {
                 </ul>
             </nav>
             <div className="d-none">
-                <Feed ref={childCompFunc}></Feed>
+                <Feed prop={setData}></Feed>
             </div>
         </>
     )
