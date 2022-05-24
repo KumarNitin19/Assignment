@@ -27,7 +27,7 @@ const Form = (data) => {
         setError(true);
         setLoading(true);
         setDisplay(true)
-        if (userName != '' && file != '' && text != '' && subtext != '' && link != '' && type != '') {
+        if (userName != '' && file != '' && text != '' && subtext != '' && link != '' && type != '' && type != '---Select---' ) {
             setError(false);
             try {
                 let url;
@@ -123,9 +123,7 @@ const Form = (data) => {
                                     <input type="url" className="form-control" placeholder="Enter Button Link" onChange={(e) => setLink(e.target.value)} value={link} required={link == ''} />
                                 </div>
                                 <label htmlFor="exampleInputEmail1" className="mt-4">Select Image Type <span className="required">*</span></label>
-                                <select className="form-control" onChange={(e) => {if(e.target.value !== '---Select--')
-                                setType(e.target.value)
-                                }} value={type} required={type == ''}>
+                                <select className="form-control" onChange={(e) => setType(e.target.value)} value={type} required={type == ''}>
                                     <option>---Select---</option>
                                     <option>NFT</option>
                                     <option>Trending</option>
